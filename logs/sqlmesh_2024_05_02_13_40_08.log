@@ -1,0 +1,8 @@
+2024-05-02 13:40:08,706 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for data files: {'db.db'} (connection.py:262)
+2024-05-02 13:40:09,292 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for in-memory database (connection.py:264)
+2024-05-02 13:40:09,293 - MainThread - sqlmesh.core.config.connection - INFO - Using existing DuckDB adapter due to overlapping data file: db.db (connection.py:257)
+2024-05-02 13:40:09,330 - MainThread - sqlmesh.core.state_sync.engine_adapter - INFO - Applying migration <module 'sqlmesh.migrations.v0049_replace_identifier_with_version_in_seeds_table' from '/Users/afzaljasani/tobiko_data/sqlmesh/.venv/lib/python3.10/site-packages/sqlmesh/migrations/v0049_replace_identifier_with_version_in_seeds_table.py'> (engine_adapter.py:1022)
+2024-05-02 13:40:09,335 - MainThread - sqlmesh.core.state_sync.engine_adapter - INFO - Fetching environments (engine_adapter.py:1028)
+2024-05-02 13:40:09,339 - MainThread - sqlmesh.core.state_sync.engine_adapter - INFO - Migrating snapshot rows... (engine_adapter.py:1045)
+2024-05-02 13:40:09,431 - MainThread - sqlmesh.core.state_sync.engine_adapter - INFO - No changes to snapshots detected (engine_adapter.py:1038)
+2024-05-02 13:40:09,458 - MainThread - sqlmesh.core.config.connection - INFO - Using existing DuckDB adapter due to overlapping data file: db.db (connection.py:257)

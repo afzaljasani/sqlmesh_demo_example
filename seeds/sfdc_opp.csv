@@ -1,0 +1,4 @@
+opportunity_id, opportunity_name, opportunity_probability, opportunity_amount, opportunity_stage, close_date
+1, stripe,0.10,10000,discovery,2024-08-01
+2, airbnb,0.20,20000,demo,2025-01-01
+3, tesla,0.50,100000,poc,2024-06-01

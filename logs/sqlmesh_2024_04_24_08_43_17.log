@@ -1,0 +1,7 @@
+2024-04-24 08:43:17,178 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for data files: {'db.db'} (connection.py:255)
+2024-04-24 08:43:17,237 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for in-memory database (connection.py:257)
+2024-04-24 08:43:17,238 - MainThread - sqlmesh.core.config.connection - INFO - Using existing DuckDB adapter due to overlapping data file: db.db (connection.py:250)
+2024-04-24 08:43:17,270 - MainThread - sqlmesh.core.state_sync.engine_adapter - INFO - Fetching environments (engine_adapter.py:989)
+2024-04-24 08:43:17,273 - MainThread - sqlmesh.core.state_sync.engine_adapter - INFO - Migrating snapshot rows... (engine_adapter.py:1007)
+2024-04-24 08:43:17,351 - MainThread - sqlmesh.core.state_sync.engine_adapter - INFO - No changes to snapshots detected (engine_adapter.py:999)
+2024-04-24 08:43:17,374 - MainThread - sqlmesh.core.config.connection - INFO - Using existing DuckDB adapter due to overlapping data file: db.db (connection.py:250)
