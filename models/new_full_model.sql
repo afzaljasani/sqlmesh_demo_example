@@ -7,7 +7,7 @@ MODEL (
 );
 
 SELECT
-  event_date,
+  event_date as ed,
   COUNT(DISTINCT id) AS num_id, /* total number of IDs */
   COUNT(*) AS total_rows /* total number of rows in table */
 FROM sqlmesh_example.seed_model
