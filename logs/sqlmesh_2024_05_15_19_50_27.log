@@ -1,0 +1,6 @@
+2024-05-15 19:50:27,177 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for data files: {'db.db'} (connection.py:249)
+2024-05-15 19:50:27,197 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for in-memory database (connection.py:251)
+2024-05-15 19:50:27,197 - MainThread - sqlmesh.core.config.connection - INFO - Using existing DuckDB adapter due to overlapping data file: db.db (connection.py:244)
+2024-05-15 19:50:27,251 - MainThread - sqlmesh.core.state_sync.engine_adapter - INFO - Starting migration rollback. (engine_adapter.py:943)
+2024-05-15 19:50:27,256 - MainThread - sqlmesh.core.state_sync.engine_adapter - INFO - Migration rollback successful. (engine_adapter.py:963)
+2024-05-15 19:50:27,276 - MainThread - sqlmesh.core.config.connection - INFO - Using existing DuckDB adapter due to overlapping data file: db.db (connection.py:244)

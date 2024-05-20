@@ -1,0 +1,6 @@
+2024-05-13 12:46:55,193 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for data files: {'db.db'} (connection.py:262)
+2024-05-13 12:46:55,231 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for in-memory database (connection.py:264)
+2024-05-13 12:46:55,276 - MainThread - sqlmesh.core.config.connection - INFO - Using existing DuckDB adapter due to overlapping data file: db.db (connection.py:257)
+2024-05-13 12:46:55,381 - MainThread - sqlmesh.core.state_sync.engine_adapter - INFO - Applying migration <module 'sqlmesh.migrations.v0001_init' from '/Users/afzaljasani/tobiko_data/sqlmesh/.venv/lib/python3.10/site-packages/sqlmesh/migrations/v0001_init.py'> (engine_adapter.py:1022)
+2024-05-13 12:46:55,392 - MainThread - sqlmesh.core.engine_adapter.base - WARNING - Failed to create schema 'sqlmesh': IO Error: Could not set lock on file "/Users/afzaljasani/tobiko_data/sqlmesh-example_afzal/db.db.wal": Conflicting lock is held in /opt/homebrew/Cellar/python@3.10/3.10.13_2/Frameworks/Python.framework/Versions/3.10/Resources/Python.app/Contents/MacOS/Python (PID 30467) by user afzaljasani. See also https://duckdb.org/docs/connect/concurrency (base.py:927)
+2024-05-13 12:46:55,402 - MainThread - sqlmesh.core.state_sync.engine_adapter - INFO - Starting migration rollback. (engine_adapter.py:970)
