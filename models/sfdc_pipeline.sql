@@ -3,7 +3,7 @@ MODEL (
   audits (DOES_NOT_EXCEED_THRESHOLD(column = expected_amount, threshold = 100000), NOT_NULL(columns = (
     opportunity_name
   ))),
-  kind FULL,
+  kind VIEW,
   owner afzal,
   grain (
     id

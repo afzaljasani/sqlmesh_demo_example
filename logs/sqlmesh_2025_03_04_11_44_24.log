@@ -1,0 +1,221 @@
+2025-03-04 11:44:24,878 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for data files: {'db.db'} (connection.py:316)
+2025-03-04 11:44:25,258 - MainThread - sqlmesh.core.config.connection - INFO - Creating new DuckDB adapter for in-memory database (connection.py:318)
+2025-03-04 11:44:25,282 - MainThread - sqlmesh.core.config.connection - INFO - Using existing DuckDB adapter due to overlapping data file: db.db (connection.py:306)
+2025-03-04 11:44:26,230 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Listing data objects in schema db.sqlmesh__sqlmesh (evaluator.py:322)
+2025-03-04 11:44:26,230 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: SELECT CURRENT_CATALOG() (base.py:2113)
+2025-03-04 11:44:26,230 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: SELECT CURRENT_CATALOG() (base.py:2113)
+2025-03-04 11:44:26,231 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: SELECT table_name AS name, table_schema AS schema, CASE table_type WHEN 'BASE TABLE' THEN 'table' WHEN 'VIEW' THEN 'view' WHEN 'LOCAL TEMPORARY' THEN 'table' END AS type FROM system.information_schema.tables WHERE (table_catalog = 'db' AND table_schema = 'sqlmesh__sqlmesh') AND table_name IN ('sqlmesh__marco_testing__635148150') (base.py:2113)
+2025-03-04 11:44:26,254 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Listing data objects in schema db.sqlmesh__sqlmesh_example (evaluator.py:322)
+2025-03-04 11:44:26,254 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: SELECT CURRENT_CATALOG() (base.py:2113)
+2025-03-04 11:44:26,254 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: SELECT CURRENT_CATALOG() (base.py:2113)
+2025-03-04 11:44:26,255 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: SELECT table_name AS name, table_schema AS schema, CASE table_type WHEN 'BASE TABLE' THEN 'table' WHEN 'VIEW' THEN 'view' WHEN 'LOCAL TEMPORARY' THEN 'table' END AS type FROM system.information_schema.tables WHERE (table_catalog = 'db' AND table_schema = 'sqlmesh__sqlmesh_example') AND table_name IN ('sqlmesh_example__seed_model__1248844913', 'sqlmesh_example__new_full_model__3421731154', 'sqlmesh_example__incremental_test__1342987875', 'sqlmesh_example__full_model__1100116909', 'sqlmesh_example__sfdc_pipeline__3294888737', 'sqlmesh_example__sfdc_opp_model__1106821760', 'sqlmesh_example__incremental_model__3165396090', 'sqlmesh_example__sfdc_opp_history__796608424') (base.py:2113)
+2025-03-04 11:44:26,260 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Creating schema 'db.sqlmesh__sqlmesh_example' (evaluator.py:1060)
+2025-03-04 11:44:26,260 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: CREATE SCHEMA IF NOT EXISTS "db"."sqlmesh__sqlmesh_example" (base.py:2113)
+2025-03-04 11:44:26,260 - MainThread - sqlmesh.core.snapshot.evaluator - INFO - Creating schema 'db.sqlmesh__sqlmesh' (evaluator.py:1060)
+2025-03-04 11:44:26,261 - MainThread - sqlmesh.core.engine_adapter.base - INFO - Executing SQL: CREATE SCHEMA IF NOT EXISTS "db"."sqlmesh__sqlmesh" (base.py:2113)
+2025-03-04 11:44:26,265 - MainThread - sqlmesh.core.plan.evaluator - INFO - Execution failed for node SnapshotId<"db"."sqlmesh"."marco_testing": 3539780679> (evaluator.py:259)
+Traceback (most recent call last):
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 200, in send
+    return call_macro(func, self.dialect, self._path, self, *args, **kwargs)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 1290, in call_macro
+    return func(*bound.args, **bound.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 798, in star
+    k: v for k, v in evaluator.columns_to_types(relation).items() if k not in excluded_names
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 413, in columns_to_types
+    raise SQLMeshError(f"Schema for model '{model_name}' can't be statically determined.")
+sqlmesh.utils.errors.SQLMeshError: Schema for model '"db"."sqlmesh_example"."new_full_model"' can't be statically determined.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/renderer.py", line 213, in _render
+    transformed_expressions = ensure_list(macro_evaluator.transform(expression))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 251, in transform
+    transformed = exp.replace_tree(
+                  ^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlglot/expressions.py", line 8284, in replace_tree
+    new_node = fun(node)
+               ^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 248, in evaluate_macros
+    return self.evaluate(node)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 332, in evaluate
+    result = self.send(func.name, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 203, in send
+    raise MacroEvalError("Error trying to eval macro.") from e
+sqlmesh.utils.errors.MacroEvalError: Error trying to eval macro.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/utils/concurrency.py", line 227, in sequential_apply_to_dag
+    fn(node)
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/utils/concurrency.py", line 165, in <lambda>
+    lambda s_id: fn(snapshots_by_id[s_id]),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 376, in <lambda>
+    lambda s: self._create_snapshot(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 829, in _create_snapshot
+    self._execute_create(
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 1094, in _execute_create
+    evaluation_strategy.create(
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 1399, in create
+    ctas_query = model.ctas_query(**render_kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/model/definition.py", line 703, in ctas_query
+    query = self.render_query_or_raise(**render_kwarg).limit(0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/model/definition.py", line 342, in render_query_or_raise
+    query = self.render_query(
+            ^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/model/definition.py", line 1273, in render_query
+    query = self._query_renderer.render(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/renderer.py", line 460, in render
+    expressions = super()._render(
+                  ^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/renderer.py", line 215, in _render
+    raise_config_error(
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/utils/errors.py", line 185, in raise_config_error
+    raise error_type(f"{msg} at '{location}'")
+sqlmesh.utils.errors.ConfigError: Failed to resolve macros for
+SELECT
+  @STAR(sqlmesh_example.new_full_model, exclude := [ed, num_id]),
+  '1' AS new_column
+FROM new_full_model
+Error trying to eval macro. at '/Users/afzaljasani/tobiko_data/sqlmesh-example_afzal/models/testing_macros.sql'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/plan/evaluator.py", line 244, in _push
+    self.snapshot_evaluator.create(
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 354, in create
+    self._create_snapshots(
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 374, in _create_snapshots
+    concurrent_apply_to_snapshots(
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/utils/concurrency.py", line 163, in concurrent_apply_to_snapshots
+    return concurrent_apply_to_dag(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/utils/concurrency.py", line 198, in concurrent_apply_to_dag
+    return sequential_apply_to_dag(dag, fn, raise_on_error)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/utils/concurrency.py", line 233, in sequential_apply_to_dag
+    raise error
+sqlmesh.utils.concurrency.NodeExecutionFailedError: Execution failed for node SnapshotId<"db"."sqlmesh"."marco_testing": 3539780679>
+2025-03-04 11:44:26,271 - MainThread - sqlmesh.core.context - INFO - Plan application failed. (context.py:1433)
+Traceback (most recent call last):
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 200, in send
+    return call_macro(func, self.dialect, self._path, self, *args, **kwargs)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 1290, in call_macro
+    return func(*bound.args, **bound.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 798, in star
+    k: v for k, v in evaluator.columns_to_types(relation).items() if k not in excluded_names
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 413, in columns_to_types
+    raise SQLMeshError(f"Schema for model '{model_name}' can't be statically determined.")
+sqlmesh.utils.errors.SQLMeshError: Schema for model '"db"."sqlmesh_example"."new_full_model"' can't be statically determined.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/renderer.py", line 213, in _render
+    transformed_expressions = ensure_list(macro_evaluator.transform(expression))
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 251, in transform
+    transformed = exp.replace_tree(
+                  ^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlglot/expressions.py", line 8284, in replace_tree
+    new_node = fun(node)
+               ^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 248, in evaluate_macros
+    return self.evaluate(node)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 332, in evaluate
+    result = self.send(func.name, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/macros.py", line 203, in send
+    raise MacroEvalError("Error trying to eval macro.") from e
+sqlmesh.utils.errors.MacroEvalError: Error trying to eval macro.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/utils/concurrency.py", line 227, in sequential_apply_to_dag
+    fn(node)
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/utils/concurrency.py", line 165, in <lambda>
+    lambda s_id: fn(snapshots_by_id[s_id]),
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 376, in <lambda>
+    lambda s: self._create_snapshot(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 829, in _create_snapshot
+    self._execute_create(
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 1094, in _execute_create
+    evaluation_strategy.create(
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 1399, in create
+    ctas_query = model.ctas_query(**render_kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/model/definition.py", line 703, in ctas_query
+    query = self.render_query_or_raise(**render_kwarg).limit(0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/model/definition.py", line 342, in render_query_or_raise
+    query = self.render_query(
+            ^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/model/definition.py", line 1273, in render_query
+    query = self._query_renderer.render(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/renderer.py", line 460, in render
+    expressions = super()._render(
+                  ^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/renderer.py", line 215, in _render
+    raise_config_error(
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/utils/errors.py", line 185, in raise_config_error
+    raise error_type(f"{msg} at '{location}'")
+sqlmesh.utils.errors.ConfigError: Failed to resolve macros for
+SELECT
+  @STAR(sqlmesh_example.new_full_model, exclude := [ed, num_id]),
+  '1' AS new_column
+FROM new_full_model
+Error trying to eval macro. at '/Users/afzaljasani/tobiko_data/sqlmesh-example_afzal/models/testing_macros.sql'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/plan/evaluator.py", line 244, in _push
+    self.snapshot_evaluator.create(
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 354, in create
+    self._create_snapshots(
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/snapshot/evaluator.py", line 374, in _create_snapshots
+    concurrent_apply_to_snapshots(
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/utils/concurrency.py", line 163, in concurrent_apply_to_snapshots
+    return concurrent_apply_to_dag(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/utils/concurrency.py", line 198, in concurrent_apply_to_dag
+    return sequential_apply_to_dag(dag, fn, raise_on_error)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/utils/concurrency.py", line 233, in sequential_apply_to_dag
+    raise error
+sqlmesh.utils.concurrency.NodeExecutionFailedError: Execution failed for node SnapshotId<"db"."sqlmesh"."marco_testing": 3539780679>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/context.py", line 1425, in apply
+    self._apply(plan, circuit_breaker)
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/context.py", line 2014, in _apply
+    self._scheduler.create_plan_evaluator(self).evaluate(
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/plan/evaluator.py", line 123, in evaluate
+    self._push(plan, snapshots, deployability_index_for_creation)
+  File "/Users/afzaljasani/.pyenv/versions/3.12.4/lib/python3.12/site-packages/sqlmesh/core/plan/evaluator.py", line 262, in _push
+    raise PlanError("Plan application failed.")
+sqlmesh.utils.errors.PlanError: Plan application failed.
+2025-03-04 11:44:26,274 - MainThread - root - INFO - Shutting down the event dispatcher (dispatcher.py:159)
