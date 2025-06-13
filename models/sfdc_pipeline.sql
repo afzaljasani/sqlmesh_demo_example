@@ -3,7 +3,7 @@ MODEL (
   audits (DOES_NOT_EXCEED_THRESHOLD(column = expected_amount, threshold = 100000), NOT_NULL(columns = (
     opportunity_name
   ))),
-  kind FULL,
+  kind VIEW,
   owner afzal,
   grain (
     id
@@ -21,4 +21,5 @@ SELECT
     THEN 3.99 * opportunity_probability
     ELSE NULL
   END AS opportunity_probability_new /* custom probability forecasting */
+
 FROM sqlmesh_example.sfdc_opp_model

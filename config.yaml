@@ -3,9 +3,6 @@ gateways:
         connection:
             type: duckdb
             database: db.db
-            
-ui:
-    format_on_save: false
 
 default_gateway: local
 
