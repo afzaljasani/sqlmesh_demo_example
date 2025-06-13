@@ -21,4 +21,5 @@ SELECT
     THEN 3.99 * opportunity_probability
     ELSE NULL
   END AS opportunity_probability_new /* custom probability forecasting */
+
 FROM sqlmesh_example.sfdc_opp_model
